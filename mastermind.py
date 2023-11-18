@@ -8,12 +8,12 @@ class Mastermind:
         self.original = self.ramdom_original()
 
     def ramdom_original(self):
-        original = [random.randint(1, 7) for _ in range(4)]
+        original = [random.randint(1, self.color) for _ in range(self.position)]
         return original
     
     def play(self):
         print(self.original)
-        print("Playing Mastermind with 6 colors and 4 positions")
+        print(f"Playing Mastermind with {color} colors and {position} positions")
         i = 1
         while i <= 10:
             clue = []
@@ -45,5 +45,7 @@ class Mastermind:
             i += 1
         print(self.original)
 
-game = Mastermind()
+color = int(input("How many color: "))
+position = int(input("How many position: "))
+game = Mastermind(color, position)
 game.play()
